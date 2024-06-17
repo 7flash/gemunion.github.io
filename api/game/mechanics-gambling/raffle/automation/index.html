@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-api docs-version-current docs-doc-page docs-doc-id-game/mechanics-gambling/raffle/automation" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.4.0">
+<title data-rh="true">Automated raffle rounds | Gemunion Framework</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:url" content="https://gemunion.io/api/game/mechanics-gambling/raffle/automation/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="twitter:card" content="summary"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-api-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-api-current"><meta data-rh="true" property="og:title" content="Automated raffle rounds | Gemunion Framework"><meta data-rh="true" name="description" content="SaaS platform does not allow merchants to automate raffle rounds because it requires us to collect and store private"><meta data-rh="true" property="og:description" content="SaaS platform does not allow merchants to automate raffle rounds because it requires us to collect and store private"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://gemunion.io/api/game/mechanics-gambling/raffle/automation/"><link data-rh="true" rel="alternate" href="https://gemunion.io/api/game/mechanics-gambling/raffle/automation/" hreflang="en"><link data-rh="true" rel="alternate" href="https://gemunion.io/api/game/mechanics-gambling/raffle/automation/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.97f213b3.css">
+<script src="/assets/js/runtime~main.5be832ca.js" defer="defer"></script>
+<script src="/assets/js/main.28c74276.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.png" alt="Gemunion Framework" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.png" alt="Gemunion Framework" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GEMUNION</b></a><a class="navbar__item navbar__link" href="/admin/overview/">Admin</a><a class="navbar__item navbar__link" href="/market/overview/">Market</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/api/overview/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/gemunion/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/api/overview/">Overview</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/category/json-microservice/">JSON microservice</a><button aria-label="Expand sidebar category &#x27;JSON microservice&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/api/game/">GAME microservice</a><button aria-label="Collapse sidebar category &#x27;GAME microservice&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/api/game/mechanics-marketing/">Marketing Mechanics</a><button aria-label="Expand sidebar category &#x27;Marketing Mechanics&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/api/game/mechanics-gambling/">Gambling Mechanics</a><button aria-label="Collapse sidebar category &#x27;Gambling Mechanics&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/api/game/mechanics-gambling/raffle/">Raffle</a><button aria-label="Collapse sidebar category &#x27;Raffle&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/api/game/mechanics-gambling/raffle/automation/">Automated raffle rounds</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/api/game/mechanics-gambling/raffle/purchase/">Purchasing raffle tickets</a></li></ul></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/category/miscellaneous/">Miscellaneous</a><button aria-label="Expand sidebar category &#x27;Miscellaneous&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/category/contracts/">Contracts</a><button aria-label="Expand sidebar category &#x27;Contracts&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/interfaces/">Interfaces</a><button aria-label="Expand sidebar category &#x27;Interfaces&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/api/notifications/">Notification Queue</a><button aria-label="Expand sidebar category &#x27;Notification Queue&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/api/game/"><span itemprop="name">GAME microservice</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/api/game/mechanics-gambling/"><span itemprop="name">Gambling Mechanics</span></a><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/api/game/mechanics-gambling/raffle/"><span itemprop="name">Raffle</span></a><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Automated raffle rounds</span><meta itemprop="position" content="4"></li></ul></nav><div class="theme-doc-markdown markdown"><h1 id="automated-raffle-rounds">Automated raffle rounds</h1>
+<p>SaaS platform does not allow merchants to automate raffle rounds because it requires us to collect and store private
+keys, and we do not want to take such responsibilities.</p>
+<p>This is how raffle rounds could be automated using our API. Basically it just starts new round with config from the last one.</p>
+<h4 id="step-1-get-raffle-contract">Step 1: get raffle contract</h4>
+<p>Request</p>
+<pre><code class="language-bash">curl -X &#x27;GET&#x27; \
+  &#x27;https://game-api.gemunion.io/raffle/contracts?skip=0&amp;take=25&amp;chainId=10001&#x27; \
+  -H &#x27;accept: */*&#x27; \
+  -H &#x27;Authorization: Bearer 11111111-2222-3333-4444-555555555555&#x27;
+</code></pre>
+<p>Response</p>
+<pre><code class="language-json">{
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: 12201,
+      &quot;createdAt&quot;: &quot;2024-03-15T02:09:10.938Z&quot;,
+      &quot;updatedAt&quot;: &quot;2024-03-15T02:09:10.938Z&quot;,
+      &quot;address&quot;: &quot;0xfe3b557e8fb62b89f4916b721be55ceb828dbd73&quot;,
+      &quot;chainId&quot;: 10001,
+      &quot;title&quot;: &quot;RAFFLE&quot;,
+      &quot;description&quot;: &quot;{\&quot;blocks\&quot;:[{\&quot;key\&quot;:\&quot;e9n5e\&quot;,\&quot;text\&quot;:\&quot;bold\&quot;,\&quot;type\&quot;:\&quot;unstyled\&quot;,\&quot;depth\&quot;:0,\&quot;inlineStyleRanges\&quot;:[{\&quot;offset\&quot;:0,\&quot;length\&quot;:4,\&quot;style\&quot;:\&quot;BOLD\&quot;}],\&quot;entityRanges\&quot;:[],\&quot;data\&quot;:{}},{\&quot;key\&quot;:\&quot;dfijs\&quot;,\&quot;text\&quot;:\&quot;italic\&quot;,\&quot;type\&quot;:\&quot;unstyled\&quot;,\&quot;depth\&quot;:0,\&quot;inlineStyleRanges\&quot;:[{\&quot;offset\&quot;:0,\&quot;length\&quot;:6,\&quot;style\&quot;:\&quot;ITALIC\&quot;}],\&quot;entityRanges\&quot;:[],\&quot;data\&quot;:{}},{\&quot;key\&quot;:\&quot;fdeqa\&quot;,\&quot;text\&quot;:\&quot;underscore\&quot;,\&quot;type\&quot;:\&quot;unstyled\&quot;,\&quot;depth\&quot;:0,\&quot;inlineStyleRanges\&quot;:[{\&quot;offset\&quot;:0,\&quot;length\&quot;:10,\&quot;style\&quot;:\&quot;UNDERLINE\&quot;}],\&quot;entityRanges\&quot;:[],\&quot;data\&quot;:{}},{\&quot;key\&quot;:\&quot;4uhh1\&quot;,\&quot;text\&quot;:\&quot;strikethrough\&quot;,\&quot;type\&quot;:\&quot;unstyled\&quot;,\&quot;depth\&quot;:0,\&quot;inlineStyleRanges\&quot;:[{\&quot;offset\&quot;:0,\&quot;length\&quot;:13,\&quot;style\&quot;:\&quot;STRIKETHROUGH\&quot;}],\&quot;entityRanges\&quot;:[],\&quot;data\&quot;:{}}],\&quot;entityMap\&quot;:{}}&quot;,
+      &quot;merchantId&quot;: 1,
+      &quot;imageUrl&quot;: &quot;https://firebasestorage.googleapis.com/v0/b/gemunion-firebase.appspot.com/o/DO_NOT_REMOVE%2Flogo.png?alt=media&amp;token=73cdfd99-1374-45e0-8140-5c02fc4d8097&quot;,
+      &quot;name&quot;: &quot;Raffle&quot;,
+      &quot;symbol&quot;: &quot;&quot;,
+      &quot;decimals&quot;: 0,
+      &quot;fromBlock&quot;: 0,
+      &quot;royalty&quot;: 0,
+      &quot;baseTokenURI&quot;: &quot;&quot;,
+      &quot;parameters&quot;: {
+        &quot;timeLagBeforeRelease&quot;: &quot;100&quot;,
+        &quot;commission&quot;: &quot;30&quot;,
+        &quot;schedule&quot;: &quot;0 0 * * 6,0&quot;,
+        &quot;roundId&quot;: 103
+      },
+      &quot;isPaused&quot;: false,
+      &quot;contractStatus&quot;: &quot;ACTIVE&quot;,
+      &quot;contractType&quot;: null,
+      &quot;contractFeatures&quot;: [
+        &quot;RANDOM&quot;,
+        &quot;ALLOWANCE&quot;,
+        &quot;PAUSABLE&quot;
+      ],
+      &quot;contractModule&quot;: &quot;RAFFLE&quot;,
+      &quot;contractSecurity&quot;: &quot;ACCESS_CONTROL&quot;,
+      &quot;merchant&quot;: {
+        &quot;id&quot;: 1,
+        &quot;wallet&quot;: &quot;0xfe3b557e8fb62b89f4916b721be55ceb828dbd73&quot;
+      }
+    }
+  ],
+  &quot;count&quot;: 1
+}
+</code></pre>
+<h4 id="step-2-execute-transaction-on-blockchain">Step 2: execute transaction on blockchain</h4>
+<p>Copy this JSON to your app</p>
+<pre><code class="language-json">[
+  {
+    &quot;inputs&quot;: [
+      {
+        &quot;components&quot;: [
+          {
+            &quot;internalType&quot;: &quot;enum TokenType&quot;,
+            &quot;name&quot;: &quot;tokenType&quot;,
+            &quot;type&quot;: &quot;uint8&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;address&quot;,
+            &quot;name&quot;: &quot;token&quot;,
+            &quot;type&quot;: &quot;address&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;tokenId&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;amount&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          }
+        ],
+        &quot;internalType&quot;: &quot;struct Asset&quot;,
+        &quot;name&quot;: &quot;ticket&quot;,
+        &quot;type&quot;: &quot;tuple&quot;
+      },
+      {
+        &quot;components&quot;: [
+          {
+            &quot;internalType&quot;: &quot;enum TokenType&quot;,
+            &quot;name&quot;: &quot;tokenType&quot;,
+            &quot;type&quot;: &quot;uint8&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;address&quot;,
+            &quot;name&quot;: &quot;token&quot;,
+            &quot;type&quot;: &quot;address&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;tokenId&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;amount&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          }
+        ],
+        &quot;internalType&quot;: &quot;struct Asset&quot;,
+        &quot;name&quot;: &quot;price&quot;,
+        &quot;type&quot;: &quot;tuple&quot;
+      },
+      {
+        &quot;internalType&quot;: &quot;uint256&quot;,
+        &quot;name&quot;: &quot;maxTicket&quot;,
+        &quot;type&quot;: &quot;uint256&quot;
+      }
+    ],
+    &quot;name&quot;: &quot;startRound&quot;,
+    &quot;outputs&quot;: [],
+    &quot;stateMutability&quot;: &quot;nonpayable&quot;,
+    &quot;type&quot;: &quot;function&quot;
+  },
+  {
+    &quot;inputs&quot;: [],
+    &quot;name&quot;: &quot;endRound&quot;,
+    &quot;outputs&quot;: [],
+    &quot;stateMutability&quot;: &quot;nonpayable&quot;,
+    &quot;type&quot;: &quot;function&quot;
+  },
+  {
+    &quot;inputs&quot;: [],
+    &quot;name&quot;: &quot;getCurrentRoundInfo&quot;,
+    &quot;outputs&quot;: [
+      {
+        &quot;components&quot;: [
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;roundId&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;startTimestamp&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;endTimestamp&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;maxTicket&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;internalType&quot;: &quot;uint256&quot;,
+            &quot;name&quot;: &quot;prizeNumber&quot;,
+            &quot;type&quot;: &quot;uint256&quot;
+          },
+          {
+            &quot;components&quot;: [
+              {
+                &quot;internalType&quot;: &quot;enum TokenType&quot;,
+                &quot;name&quot;: &quot;tokenType&quot;,
+                &quot;type&quot;: &quot;uint8&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;address&quot;,
+                &quot;name&quot;: &quot;token&quot;,
+                &quot;type&quot;: &quot;address&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;uint256&quot;,
+                &quot;name&quot;: &quot;tokenId&quot;,
+                &quot;type&quot;: &quot;uint256&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;uint256&quot;,
+                &quot;name&quot;: &quot;amount&quot;,
+                &quot;type&quot;: &quot;uint256&quot;
+              }
+            ],
+            &quot;internalType&quot;: &quot;struct Asset&quot;,
+            &quot;name&quot;: &quot;acceptedAsset&quot;,
+            &quot;type&quot;: &quot;tuple&quot;
+          },
+          {
+            &quot;components&quot;: [
+              {
+                &quot;internalType&quot;: &quot;enum TokenType&quot;,
+                &quot;name&quot;: &quot;tokenType&quot;,
+                &quot;type&quot;: &quot;uint8&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;address&quot;,
+                &quot;name&quot;: &quot;token&quot;,
+                &quot;type&quot;: &quot;address&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;uint256&quot;,
+                &quot;name&quot;: &quot;tokenId&quot;,
+                &quot;type&quot;: &quot;uint256&quot;
+              },
+              {
+                &quot;internalType&quot;: &quot;uint256&quot;,
+                &quot;name&quot;: &quot;amount&quot;,
+                &quot;type&quot;: &quot;uint256&quot;
+              }
+            ],
+            &quot;internalType&quot;: &quot;struct Asset&quot;,
+            &quot;name&quot;: &quot;ticketAsset&quot;,
+            &quot;type&quot;: &quot;tuple&quot;
+          }
+        ],
+        &quot;internalType&quot;: &quot;struct RaffleRoundInfo&quot;,
+        &quot;name&quot;: &quot;&quot;,
+        &quot;type&quot;: &quot;tuple&quot;
+      }
+    ],
+    &quot;stateMutability&quot;: &quot;view&quot;,
+    &quot;type&quot;: &quot;function&quot;
+  }
+]
+</code></pre>
+<p>This code snippet is a simplified version of server side code we use in our application</p>
+<pre><code class="language-typescript">import { JsonRpcProvider, Wallet } from &quot;ethers&quot;;
+
+const provider = new JsonRpcProvider(JSON_RPC_URL);
+const instance = new Contract(constract.address, RaffleABI, new Wallet(PRIVATE_KEY, jsonRpcProvider));
+const roundInfo = await instance.getCurrentRoundInfo();
+
+const { roundId, endTimestamp, acceptedAsset, ticketAsset, maxTicket } = roundInfo;
+
+// if this is not the first round
+if (BigInt(roundId) !== 0n) {
+  // if current round still active - end round
+  if (BigInt(endTimestamp) === 0n) {
+    await instance.endRound();
+  }
+
+  await instance.startRound(acceptedAsset, ticketAsset, maxTicket);
+}
+</code></pre></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/api/game/mechanics-gambling/raffle/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Raffle</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/api/game/mechanics-gambling/raffle/purchase/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Purchasing raffle tickets</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 GEMUNION. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
